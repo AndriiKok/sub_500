@@ -11,10 +11,10 @@ RUN apt-get update -y && \
 EXPOSE 26658
 EXPOSE 2121
 
-USER nubit-user
 WORKDIR /home/nubit-user
-
 RUN curl -sLO http://nubit.sh/nubit-bin/nubit-node-linux-x86_64.tar
+
+USER nubit-user
 
 RUN tar -xvf nubit-node-linux-x86_64.tar
 RUN mv nubit-node-linux-x86_64 "/home/nubit-user/nubit-node"
