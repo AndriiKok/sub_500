@@ -2,8 +2,9 @@ FROM ubuntu:22.04
 
 # Add a non-root user
 RUN groupadd -r nubit-user && useradd -r -g nubit-user nubit-user
-RUN chown nubit-user:nubit-user /home/nubit-user && chmod 660 /home/nubit-user
 USER root
+
+RUN chown nubit-user:nubit-user /home/nubit-user && chmod 660 /home/nubit-user
 
 # Install necessary dependencies
 RUN apt-get update -y && \
