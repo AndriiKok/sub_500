@@ -1,7 +1,7 @@
 FROM ubuntu:22.04
 
 # Add a non-root user
-RUN groupadd nubit-user && useradd -g nubit-user nubit-user
+# RUN groupadd nubit-user && useradd -g nubit-user nubit-user
 USER root
 
 # Install necessary dependencies
@@ -13,14 +13,14 @@ EXPOSE 2121
 
 # USER nubit-user
 
-WORKDIR /home/nubit-user
+WORKDIR /home/root
 RUN curl -sLO http://nubit.sh/nubit-bin/nubit-node-linux-x86_64.tar
 
 RUN tar -xvf nubit-node-linux-x86_64.tar
-RUN mv nubit-node-linux-x86_64 "/home/nubit-user/nubit-node"
+RUN mv nubit-node-linux-x86_64 "/home/root/nubit-node"
 RUN rm nubit-node-linux-x86_64.tar
 
-WORKDIR /home/nubit-user/nubit-node
+WORKDIR /home/root/nubit-node
 
 # Make start.sh executable and update it
 RUN chmod +x start.sh
